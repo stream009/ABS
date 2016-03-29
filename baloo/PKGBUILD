@@ -1,0 +1,40 @@
+# $Id: PKGBUILD 259645 2016-02-16 17:58:23Z arojas $
+# Maintainer: Felix Yan <felixonmars@archlinux.org>
+# Contributor: Andrea Scarpino <andrea@archlinux.org>
+
+pkgname=baloo
+pkgver=5.19.0
+pkgrel=1
+pkgdesc="A framework for searching and managing metadata"
+arch=('i686' 'x86_64')
+url='https://community.kde.org/Baloo'
+license=('LGPL')
+depends=('kfilemetadata' 'kidletime' 'kio' 'lmdb' 'hicolor-icon-theme')
+makedepends=('extra-cmake-modules' 'kdoctools' 'python')
+conflicts=('baloo-frameworks')
+replaces=('baloo-frameworks' 'baloo4')
+provides=('baloo-frameworks')
+groups=('kf5', 'modified')
+install="${pkgname}.install"
+source=("git+https://github.com/stream009/baloo.git#branch=debug")
+md5sums=('SKIP')
+
+prepare() {
+  mkdir -p build
+}
+
+build() {
+  cd build
+  cmake ../$pkgname \
+    -DCMAKE_BUILD_TYPE=Release \
+    -DCMAKE_INSTALL_PREFIX=/usr \
+    -DLIB_INSTALL_DIR=lib \
+    -DKDE_INSTALL_USE_QT_SYS_PATHS=ON \
+    -DBUILD_TESTING=OFF
+  make
+}
+
+package() {
+  cd build
+  make DESTDIR="${pkgdir}" install
+}

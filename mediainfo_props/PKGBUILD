@@ -1,0 +1,32 @@
+# This is an example PKGBUILD file. Use this as a start to creating your own,
+# and remove these comments. For more information, see 'man PKGBUILD'.
+# NOTE: Please fill out the license field for your package! If it is unknown,
+# then please put 'unknown'.
+
+# See http://wiki.archlinux.org/index.php/VCS_PKGBUILD_Guidelines
+# for more information on packaging from GIT sources.
+
+# Maintainer: Your Name <youremail@domain.com>
+pkgname=mediainfo_props-git
+pkgver=1
+pkgrel=1
+pkgdesc="KDE property page for baloo metadata"
+arch=('i686')
+license=('GPL')
+makedepends=('git' 'cmake' 'libmediainfo')
+source=('git+https://github.com/stream009/mediainfo_props.git#branch=KF5')
+md5sums=('SKIP')
+
+build() {
+  cd "${srcdir}/mediainfo_props"
+  mkdir -p build; cd build
+  cmake -DCMAKE_INSTALL_PREFIX=/usr -DKDE_INSTALL_USE_QT_SYS_PATHS=On ..
+  make
+}
+
+package() {
+  cd "${srcdir}/mediainfo_props/build"
+  make DESTDIR="$pkgdir/" install
+}
+
+# vim:set ts=2 sw=2 et:
