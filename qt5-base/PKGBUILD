@@ -1,7 +1,7 @@
 pkgname=('qt5-base')
 pkgdesc='A cross-platform application and UI framework'
-pkgver=5.5.1
-pkgrel=10
+pkgver=5.6.0
+pkgrel=2
 arch=('i686' 'x86_64')
 url='http://www.qt.io/developers'
 license=('GPL3' 'LGPL' 'FDL' 'custom')
@@ -26,7 +26,7 @@ conflicts=('qt')
 groups=('qt' 'qt5', 'modified')
 _pkgfqn="qt-everywhere-opensource-src-${pkgver}"
 source=("http://download.qt-project.org/official_releases/qt/${pkgver%.*}/${pkgver}/single/${_pkgfqn}.tar.xz")
-md5sums=('c2a249e8795d45200d997d96860d0353')
+md5sums=('SKIP')
 
 prepare() {
   cd ${_pkgfqn}
