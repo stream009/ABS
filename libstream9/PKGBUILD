@@ -1,0 +1,37 @@
+# This is an example PKGBUILD file. Use this as a start to creating your own,
+# and remove these comments. For more information, see 'man PKGBUILD'.
+# NOTE: Please fill out the license field for your package! If it is unknown,
+# then please put 'unknown'.
+
+# See http://wiki.archlinux.org/index.php/VCS_PKGBUILD_Guidelines
+# for more information on packaging from GIT sources.
+
+# Maintainer: Your Name <youremail@domain.com>
+pkgname="libstream9"
+pkgver=0.0.1
+pkgrel=1
+pkgdesc="Utility library for myself"
+arch=('i686')
+license=('GPL')
+depends=('boost' 'qt5-base')
+makedepends=('git' 'cmake')
+
+prepare() {
+  cd "$srcdir"
+  msg "fetching source tree from repository..."
+  git clone https://github.com/stream009/libstream9.git
+}
+
+build() {
+  cd "${srcdir}/libstream9"
+  mkdir -p build; cd build
+  cmake -DCMAKE_INSTALL_PREFIX=/usr/local -DCMAKE_BUILD_TYPE=RelWithDebInfo -DBUILD_TESTING=Off ..
+  make
+}
+
+package() {
+  cd "${srcdir}/libstream9/build"
+  make DESTDIR="$pkgdir/" install
+}
+
+# vim:set ts=2 sw=2 et:
