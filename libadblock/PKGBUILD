@@ -19,7 +19,7 @@ makedepends=('git' 'cmake')
 prepare() {
   cd "$srcdir"
   msg "fetching source tree from repository..."
-  git clone --recursive https://github.com/stream009/libadblock.git
+  git clone --recursive --depth 1  https://github.com/stream009/libadblock.git
 }
 
 build() {
