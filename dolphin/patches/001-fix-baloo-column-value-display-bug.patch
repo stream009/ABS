@@ -19,15 +19,6 @@ index b03fd9c..b04d2ec 100644
          // the corresponding file has been deleted in the meantime.
          return;
      }
-@@ -730,7 +730,7 @@ void KFileItemModelRolesUpdater::applyChangedBalooRoles(const QString& itemUrl)
-             this,    &KFileItemModelRolesUpdater::slotItemsChanged);
- #else
- #ifndef Q_CC_MSVC
--    Q_UNUSED(itemUrl);
-+    Q_UNUSED(itemPath);
- #endif
- #endif
- }
 diff --git a/src/kitemviews/private/kbaloorolesprovider.cpp b/src/kitemviews/private/kbaloorolesprovider.cpp
 index 920ce06..0bf90ce 100644
 --- a/src/kitemviews/private/kbaloorolesprovider.cpp
