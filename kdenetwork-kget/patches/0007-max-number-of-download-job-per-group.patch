@@ -149,7 +149,7 @@ index 51b9442..3a6a9c2 100644
 +
 +        bool hasOwnMaxSimultaneousJobs() const
 +        {
-+            return m_maxSimultaneousJobs;
++            return static_cast<bool>(m_maxSimultaneousJobs);
 +        }
  
      protected:

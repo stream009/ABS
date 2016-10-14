@@ -1,20 +1,20 @@
-# $Id: PKGBUILD 259786 2016-02-16 18:06:13Z arojas $
+# $Id: PKGBUILD 278743 2016-10-13 16:11:39Z arojas $
 # Maintainer: Felix Yan <felixonmars@archlinux.org>
 # Contributor: Andrea Scarpino <andrea@archlinux.org>
 
 pkgname=kdenetwork-kget
-pkgver=15.12.3
-pkgrel=2
+pkgver=16.08.2
+pkgrel=1
 pkgdesc='Download Manager'
 url='http://kde.org/applications/internet/kget/'
 arch=('i686' 'x86_64')
 license=('GPL' 'LGPL' 'FDL')
-groups=('kde-applications' 'kdenetwork', 'modified')
-depends=('kdebase-runtime' 'kdebase-lib' 'libktorrent' 'libmms' 'kdepimlibs4')
-makedepends=('cmake' 'automoc4' 'boost')
-install=${pkgname}.install
+groups=('kde-applications' 'kdenetwork')
+depends=('kdebase-runtime' 'libmms')
+makedepends=('cmake' 'automoc4' 'boost' 'libktorrent4')
+optdepends=('libktorrent4: torrent support')
 source=("http://download.kde.org/stable/applications/${pkgver}/src/kget-${pkgver}.tar.xz")
-sha1sums=('bace6e2a6765985d49548c46670a565d6d9008b4')
+sha1sums=('SKIP')
 
 prepare() {
   pushd kget-$pkgver
