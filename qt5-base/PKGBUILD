@@ -1,7 +1,7 @@
 pkgname=('qt5-base')
 pkgdesc='A cross-platform application and UI framework'
-pkgver=5.6.0
-pkgrel=3
+pkgver=5.7.0
+pkgrel=1
 arch=('i686' 'x86_64')
 url='http://www.qt.io/developers'
 license=('GPL3' 'LGPL' 'FDL' 'custom')

@@ -1,7 +1,7 @@
 pkgbase=kdebase
 pkgname=('kdebase-lib')
 pkgdesc='KDE libraries for the basic desktop applications'
-pkgver=15.12.3
+pkgver=16.04.3
 pkgrel=1
 arch=('i686' 'x86_64')
 url='http://www.kde.org'
@@ -11,7 +11,7 @@ depends=('kdelibs')
 makedepends=('libkactivities4' 'cmake' 'automoc4' 'tidy')
 conflicts=('kde-templates')
 source=("http://download.kde.org/stable/applications/${pkgver}/src/kde-baseapps-${pkgver}.tar.xz")
-sha1sums=('a330dcc351291b4aa544988251ac002579a22f86')
+sha1sums=('SKIP')
 
 prepare() {
   mkdir -p build
