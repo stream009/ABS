@@ -1,9 +1,9 @@
-# $Id: PKGBUILD 278743 2016-10-13 16:11:39Z arojas $
+# $Id: PKGBUILD 280443 2016-11-10 18:31:41Z arojas $
 # Maintainer: Felix Yan <felixonmars@archlinux.org>
 # Contributor: Andrea Scarpino <andrea@archlinux.org>
 
 pkgname=kdenetwork-kget
-pkgver=16.08.2
+pkgver=16.08.3
 pkgrel=1
 pkgdesc='Download Manager'
 url='http://kde.org/applications/internet/kget/'
@@ -14,7 +14,7 @@ depends=('kdebase-runtime' 'libmms')
 makedepends=('cmake' 'automoc4' 'boost' 'libktorrent4')
 optdepends=('libktorrent4: torrent support')
 source=("http://download.kde.org/stable/applications/${pkgver}/src/kget-${pkgver}.tar.xz")
-sha1sums=('SKIP')
+sha1sums=('064151561c1823e21c329079da126ea3b9e34920')
 
 prepare() {
   pushd kget-$pkgver
@@ -34,7 +34,8 @@ build() {
     -DCMAKE_INSTALL_PREFIX=/usr \
     -DWITH_NepomukCore=OFF \
     -DWITH_NepomukWidgets=OFF \
-    -DWITH_KDE4Workspace=OFF
+    -DWITH_KDE4Workspace=OFF \
+    -DWITH_QGpgme=OFF
   make
 }
 

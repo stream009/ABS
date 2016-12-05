@@ -1,9 +1,9 @@
-# $Id: PKGBUILD 278536 2016-10-13 06:15:15Z felixonmars $
+# $Id: PKGBUILD 280985 2016-11-18 06:59:12Z arojas $
 # Maintainer: Felix Yan <felixonmars@archlinux.org>
 # Contributor: Andrea Scarpino <andrea@archlinux.org>
 
 pkgname=kio
-pkgver=5.27.0
+pkgver=5.28.0
 pkgrel=1
 pkgdesc='Resource and network access abstraction'
 arch=('i686' 'x86_64')
@@ -13,9 +13,8 @@ depends=('solid' 'kjobwidgets' 'kbookmarks' 'libxslt' 'kwallet' 'desktop-file-ut
 makedepends=('extra-cmake-modules' 'kdoctools' 'python')
 optdepends=('kio-extras: extra protocols support (sftp, fish and more)')
 groups=('kf5' 'modified')
-install=kio.install
 source=("http://download.kde.org/stable/frameworks/${pkgver%.*}/${pkgname}-${pkgver}.tar.xz")
-md5sums=('SKIP')
+md5sums=('eae12791a2c172e04287c24ad47c05f5')
 
 prepare() {
   mkdir -p build

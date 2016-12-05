@@ -13,7 +13,7 @@ pkgrel=1
 pkgdesc="Utility library for myself"
 arch=('i686')
 license=('GPL')
-depends=('boost' 'qt5-base' 'qt5-webkit' 'libadblock')
+depends=('boost' 'qt5-base' 'qt5-tools' 'qt5-webkit' 'libadblock')
 makedepends=('git' 'libstream9')
 
 prepare() {
