@@ -11,10 +11,10 @@ pkgname=libadblock
 pkgver=0.0.1
 pkgrel=1
 pkgdesc="ADBlock engine"
-arch=('i686')
+arch=('i686' 'x86_64')
 license=('GPL')
 depends=('boost')
-makedepends=('git' 'cmake')
+makedepends=('git' 'cmake' 'cpp-netlib' 'gtest')
 
 prepare() {
   cd "$srcdir"

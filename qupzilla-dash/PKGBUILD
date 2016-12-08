@@ -10,8 +10,8 @@
 pkgname="qupzilla-dash"
 pkgver=1.8.8
 pkgrel=1
-pkgdesc="Utility library for myself"
-arch=('i686')
+pkgdesc="Local fork of QupZilla browser"
+arch=('i686' 'x86_64')
 license=('GPL')
 depends=('boost' 'qt5-base' 'qt5-tools' 'qt5-webkit' 'libadblock')
 makedepends=('git' 'libstream9')
