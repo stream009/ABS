@@ -1,9 +1,9 @@
-# $Id: PKGBUILD 283971 2016-12-17 09:57:25Z arojas $
+# $Id: PKGBUILD 288828 2017-02-13 09:20:42Z arojas $
 # Maintainer: Felix Yan <felixonmars@archlinux.org>
 # Contributor: Andrea Scarpino <andrea@archlinux.org>
 
 pkgname=baloo
-pkgver=5.29.0
+pkgver=5.31.0
 pkgrel=1
 pkgdesc="A framework for searching and managing metadata"
 arch=('i686' 'x86_64')
@@ -24,7 +24,7 @@ prepare() {
 
 build() {
   cd build
-  cmake ../$pkgname-$pkgver \
+  cmake ../$pkgname \
     -DCMAKE_BUILD_TYPE=Release \
     -DCMAKE_INSTALL_PREFIX=/usr \
     -DKDE_INSTALL_LIBDIR=lib \
