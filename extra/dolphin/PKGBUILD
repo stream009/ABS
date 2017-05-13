@@ -17,7 +17,7 @@ optdepends=('kde-cli-tools: for editing file type options' 'ffmpegthumbs: video 
             'ruby: installing new service menus from KDE Store' 'kdegraphics-thumbnailers: PDF and PS thumbnails' 'konsole: terminal panel')
 conflicts=('kdebase-dolphin<15.08')
 replaces=(kdebase-dolphin)
-groups=(kde-applications kdebase)
+groups=(kde-applications kdebase modified)
 source=("https://download.kde.org/stable/applications/$pkgver/src/$pkgname-$pkgver.tar.xz"{,.sig})
 sha256sums=('27ae075eeb5811c4a3b2f64edb7316c17ac114bb1fa7ee866cc04def99352be7'
             'SKIP')
@@ -25,6 +25,11 @@ validpgpkeys=(CA262C6C83DE4D2FB28A332A3A6A4DB839EAA6D7) # Albert Astals Cid <aac
 
 prepare() {
   mkdir -p build
+  
+  cd ${srcdir}/${pkgname}-${pkgver}
+  for p in ../../patches/*.patch; do
+    patch -p1 < $p
+  done
 }
 
 build() {
