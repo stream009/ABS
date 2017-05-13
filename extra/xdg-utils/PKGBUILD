@@ -21,11 +21,15 @@ optdepends=('kde-cli-tools: for KDE Plasma5 support in xdg-open'
 source=(https://portland.freedesktop.org/download/$pkgname-$pkgver.tar.gz) #{,.asc}
 sha1sums=('20cd4cc5cfaa904b12abf6d584deb568367f4d83')
 #validpgpkeys=('8B75CA7811367175D05F3B03C43570F80CC295E6') # "Per Olofsson <pelle@pqz.se>"
+groups=('modified')
 
 prepare() {
 	cd $pkgname-$pkgver
 	# fix wrong hardcoded chromium binary name - FS#50184
 #	sed -i "s:chromium-browser:chromium:" scripts/xdg-open.in
+
+	# local patch
+	patch -p1 < $startdir/0001-bug-fix.patch
 }
 
 build() {
