@@ -54,6 +54,12 @@ prepare() {
   patch -p1 -i ../qtbug-61140.patch
   # Fix crashes with QtCurve
   patch -p1 -i ../qtbug-60558.patch
+
+  # Apply local patches
+  shopt -s nullglob
+  for p in ${srcdir}/../patches/*.patch; do
+    patch -p1 < $p
+  done
 }
 
 build() {
