@@ -1,9 +1,9 @@
-# $Id$
+# $Id: PKGBUILD 298676 2017-06-12 08:53:51Z arojas $
 # Maintainer: Felix Yan <felixonmars@archlinux.org>
 # Contributor: Andrea Scarpino <andrea@archlinux.org>
 
 pkgname=baloo
-pkgver=5.34.0
+pkgver=5.35.0
 pkgrel=1
 pkgdesc="A framework for searching and managing metadata"
 arch=('i686' 'x86_64')
