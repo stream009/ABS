@@ -3,17 +3,14 @@
 # Contributor: Andrea Scarpino <andrea@archlinux.org>
 
 pkgname=baloo
-pkgver=5.37.0
+pkgver=5.39.0
 pkgrel=1
 pkgdesc="A framework for searching and managing metadata"
 arch=('i686' 'x86_64')
 url='https://community.kde.org/Frameworks'
 license=('LGPL')
-depends=('kfilemetadata' 'kidletime' 'kio' 'lmdb' 'hicolor-icon-theme')
+depends=('kfilemetadata' 'kidletime' 'kio' 'lmdb')
 makedepends=('extra-cmake-modules' 'kdoctools' 'python' 'doxygen' 'qt5-tools')
-conflicts=('baloo-frameworks')
-replaces=('baloo-frameworks' 'baloo4')
-provides=('baloo-frameworks')
 groups=('kf5' 'modified')
 source=("git+https://github.com/stream009/baloo.git#branch=debug")
 md5sums=('SKIP')
