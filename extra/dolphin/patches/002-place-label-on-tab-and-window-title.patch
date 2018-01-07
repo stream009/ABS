@@ -1,17 +1,17 @@
 diff --git a/src/CMakeLists.txt b/src/CMakeLists.txt
-index ce4cec80c..3ace55466 100644
+index e1b63358d..2d0846d34 100644
 --- a/src/CMakeLists.txt
 +++ b/src/CMakeLists.txt
-@@ -250,6 +250,7 @@ set(dolphin_SRCS
+@@ -251,6 +251,7 @@ set(dolphinstatic_SRCS
+     views/zoomlevelinfo.cpp
      dolphindebug.cpp
-     dbusinterface.cpp
      global.cpp
 +    dolphinplacesmodel.cpp
  )
  
- kconfig_add_kcfg_files(dolphin_SRCS GENERATE_MOC
+ kconfig_add_kcfg_files(dolphinstatic_SRCS GENERATE_MOC
 diff --git a/src/dolphinmainwindow.cpp b/src/dolphinmainwindow.cpp
-index a163ef7fd..4550c0cb2 100644
+index c35de766c..1abdb7f3b 100644
 --- a/src/dolphinmainwindow.cpp
 +++ b/src/dolphinmainwindow.cpp
 @@ -29,6 +29,7 @@
@@ -19,10 +19,10 @@ index a163ef7fd..4550c0cb2 100644
  #include "dolphinviewcontainer.h"
  #include "dolphintabpage.h"
 +#include "dolphinplacesmodel.h"
+ #include "middleclickactioneventfilter.h"
  #include "panels/folders/folderspanel.h"
  #include "panels/places/placespanel.h"
- #include "panels/information/informationpanel.h"
-@@ -964,7 +965,13 @@ void DolphinMainWindow::setUrlAsCaption(const QUrl& url)
+@@ -983,7 +984,13 @@ void DolphinMainWindow::setUrlAsCaption(const QUrl& url)
          }
      }
  
@@ -31,12 +31,12 @@ index a163ef7fd..4550c0cb2 100644
 +    const auto &placeName = placesModel.text(url);
 +
 +    if (!placeName.isEmpty()) {
-+        caption.append(placeName);
++        schemePrefix.append(placeName);
 +    }
 +    else if (GeneralSettings::showFullPathInTitlebar()) {
          const QString path = url.adjusted(QUrl::StripTrailingSlash).path();
-         caption.append(path);
-     } else {
+         setWindowTitle(schemePrefix + path);
+         return;
 diff --git a/src/dolphinplacesmodel.cpp b/src/dolphinplacesmodel.cpp
 new file mode 100644
 index 000000000..1c9c50dbe
@@ -148,7 +148,7 @@ index 000000000..1cc797c10
 +
 +#endif // DOLPHIN_PLACES_MODEL_H
 diff --git a/src/dolphintabwidget.cpp b/src/dolphintabwidget.cpp
-index bcd4a49fd..cdb6dde43 100644
+index d9b7d7e13..5f5791f8b 100644
 --- a/src/dolphintabwidget.cpp
 +++ b/src/dolphintabwidget.cpp
 @@ -22,6 +22,7 @@
